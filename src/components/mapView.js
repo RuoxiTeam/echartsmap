@@ -12,27 +12,35 @@ const MapView = () => {
           roam: false
         },
         series: {
-          type: 'effectScatter',
+          type: 'scatter',
+        //   symbol: 'path://M150 0 L75 50 L75 135 L150 185 L225 135 L225 50 Z',
+        //   symbol: 'path://"M86.6 0 L173.2 50 L173.2 150 L86.6 200 L0 150 L0 50 Z"',
+          symbol: 'image://data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
           coordinateSystem: 'geo',
           geoIndex: 0,
+          zlevel: 1,
           symbolSize: function (params) {
-            return (params[2] / 100) * 15 + 5;
+            return params[2]
           },
           itemStyle: {
-            color: '#187C85'
+            color: '#187C85',
+            opacity: 1,
+            boxShadow: '0px 4px 4px 0px #00000040',
           },
           encode: {
             tooltip: 2
           },
           data: [
-            [159, 98, 10],
-            [200, 300, 30],
-            [300, 443, 80],
-            [400, 200, 61],
-            [400, 400, 70],
-            [500, 500, 81],
-            [700, 500, 81]
-          ]
+            [160, 97, 10],
+            [100, 570, 10],
+            [200, 300, 20],
+            [300, 443, 17],
+            [400, 200, 31],
+            [400, 400, 20],
+            [500, 500, 20],
+            [700, 500, 18],
+          ],
+          symbolKeepAspect: true,
         }
     }
     useEffect(() => {
@@ -40,7 +48,6 @@ const MapView = () => {
         fetch('./map.svg')
         .then((response) => response.text())
         .then((svgText) => {
-            console.log(svgText);
             echarts.registerMap('usa_svg', { svg: svgText });
             let myChart = echarts.init(document.getElementById('beef'));
             myChart.setOption(option);
