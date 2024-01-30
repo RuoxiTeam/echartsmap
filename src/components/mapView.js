@@ -13,9 +13,9 @@ const MapView = () => {
         },
         series: {
           type: 'scatter',
-        //   symbol: 'path://M150 0 L75 50 L75 135 L150 185 L225 135 L225 50 Z',
+          symbol: 'image://./HexagonIcon.svg',
         //   symbol: 'path://"M86.6 0 L173.2 50 L173.2 150 L86.6 200 L0 150 L0 50 Z"',
-          symbol: 'image://data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
+        //   symbol: 'image://data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
           coordinateSystem: 'geo',
           geoIndex: 0,
           zlevel: 1,
@@ -25,7 +25,6 @@ const MapView = () => {
           itemStyle: {
             color: '#187C85',
             opacity: 1,
-            boxShadow: '0px 4px 4px 0px #00000040',
           },
           encode: {
             tooltip: 2
