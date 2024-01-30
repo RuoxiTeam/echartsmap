@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import * as echarts from "echarts";
-import ReactEcharts from "echarts-for-react"; 
 
 const MapView = () => {
     const option = {
@@ -9,7 +8,7 @@ const MapView = () => {
           tooltip: {
             show: true
           },
-          map: 'iceland_svg',
+          map: 'usa_svg',
           roam: false
         },
         series: {
@@ -20,13 +19,13 @@ const MapView = () => {
             return (params[2] / 100) * 15 + 5;
           },
           itemStyle: {
-            color: '#b02a02'
+            color: '#187C85'
           },
           encode: {
             tooltip: 2
           },
           data: [
-            [150, 98, 10],
+            [159, 98, 10],
             [200, 300, 30],
             [300, 443, 80],
             [400, 200, 61],
@@ -42,7 +41,7 @@ const MapView = () => {
         .then((response) => response.text())
         .then((svgText) => {
             console.log(svgText);
-            echarts.registerMap('iceland_svg', { svg: svgText });
+            echarts.registerMap('usa_svg', { svg: svgText });
             let myChart = echarts.init(document.getElementById('beef'));
             myChart.setOption(option);
        })
@@ -50,7 +49,9 @@ const MapView = () => {
     }, []);
 
     return (
-        <ReactEcharts option={option} />
+        <div>
+            <div style={{ width: "100%", height: "50vh" }} id='beef'></div>
+        </div>
     )
 }
 
